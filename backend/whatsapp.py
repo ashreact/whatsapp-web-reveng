@@ -31,7 +31,10 @@ import pyqrcode;
 from utilities import *;
 from whatsapp_binary_reader import whatsappReadBinary;
 
-WHATSAPP_WEB_VERSION="2,2121,6"
+import requests
+
+res = requests.get('https://web.whatsapp.com/desktop/mac/releases').json()
+WHATSAPP_APP_VERSION = res['name']
 
 reload(sys);
 sys.setdefaultencoding("utf-8");
